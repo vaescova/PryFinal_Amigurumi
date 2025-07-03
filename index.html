@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMIGURUMI PERU - CONTRERAS VALERIA</title>
+    <link rel="icon" type="image/png" href="img/logo_amigurumi peru.jpeg" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <!--Encabezado-->
+    <header>
+        <nav>
+            <a href="index.html"><img id="logo" src="img/logo_amigurumi peru.jpeg" alt="Logo"></a>
+            <ul class="">
+                <li><a class="active" href="index.html"><img id="yarn" src="img/yarn.svg" alt="yarn">Inicio</a></li>
+                <li><a href="products.html">Productos</a></li>
+                <li><a href="faq.html">Cómo comprar</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+            </ul>
+            <ul id="icons_nav">
+                <li><a href="shopping.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                <li><a href="profile.html"><i class="fa-solid fa-circle-user"></i></a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!--Contenido-->
+    <main>
+
+        <!-- Sección de Hero-->
+
+        <div class="hero">
+           
+            <div class="carousel animarhero">
+                <img src="img/amigurumi_peruimg.png" alt="principal">
+                <div class="hero-content">
+                    <h1>Colección primaveral</h1>
+                    <p>Cada producto es elaborado con inmenso entusiasmo y dedicación.</p>
+                    <button id="boton1">Ver más</button>
+                </div>
+            </div>
+
+            <div class="carousel animarhero">
+                <img src="img/muñeca_vestidoazul_amigurumi.png" alt="imagen2">
+                <div class="hero-content2">
+                    <h1>Colecciones</h1>
+                    <button id="boton1">Ver más</button>
+                </div>
+            </div>
+            <div class="carousel animarhero">
+                <img src="img/flores_crochet.jpeg" alt="imagen3">
+                <div class="hero-content3">
+                    <h1>Promociones de invierno</h1>
+                    <button id="boton1">Ver más</button>
+                </div>
+            </div>
+            
+            <div class="pass">
+                <button class="carousel-prev" onclick="plusSlides(-1)"><i class="fa-solid fa-angle-left"></i></button>
+                <button class="carousel-next" onclick="plusSlides(1)"><i class="fa-solid fa-angle-right"></i></button>
+            </div>
+            <br>
+            
+        </div>
+        <div class="dot-content">
+                <span class="dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+                <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+        <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("carousel");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" activo", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " activo";
+        }
+        </script>
+        <!-- Sección de categorías-->
+
+        <section class="categories">
+            <div class="cat-tittle">
+                <hr class="line_subtittle">
+                <h2>Categorías</h2>
+                <hr class="line_subtittle">
+            </div>
+            <div class="categories-content">
+                <div class="category">
+                    <img src="img/peluche_mono.jpg" alt="peluches">
+                    <button class="button-products"><p>Muñeco de apego</p></button>
+                </div>
+                <div class="category">
+                    <img src="img/sonajeros_animales.jpg" alt="sonajeros">
+                    <button class="button-products"><p>Sonajeros</p></button>
+                </div>
+                <div class="category">
+                    <img src="img/flores_crochet.jpeg" alt="flores">
+                    <button class="button-products"><p>Flores</p></button>
+                </div>
+                <div class="category">
+                    <img src="img/giftbox_conejo.jpg" alt="giftbox">
+                    <button class="button-products"><p>Gift box</p></button>
+                </div>
+            </div>
+            <div>
+                <button id="boton2">Ver más <i class="fa-solid fa-angle-right"></i></button>
+            </div>
+        </section>
+
+        <!--Sección de productos-->
+        <section class="products">
+            <div class="cat-tittle">
+                <hr class="line_subtittle">
+                <h2>Productos</h2>
+                <hr class="line_subtittle">
+            </div>
+            <div class="product-content">
+                <div class="product-option">
+                    <button class="tablinks" onclick="ProductosTabs(event, 'Novedades')" id="defaultOpen">Novedades</button>
+                    <button class="tablinks" onclick="ProductosTabs(event, 'Vendidos')">Más vendidos</button>
+                    <button class="tablinks" onclick="ProductosTabs(event, 'Colecciones')">Colecciones</button>
+                </div>
+                <div class="contenedor-bloque">
+                    <div class="bloque" id="Novedades">
+                        <div class="img-grid">
+
+                            <!--imagen del lado izquierdo-->
+                            <div class="option">
+                                <div class="option-img">
+                                    <img src="img/peluches_ganchillo.jpg" alt="img-novedades">
+                                </div>
+                                <div class="option-text">
+                                    <h2>Novedades</h2>
+                                </div>
+                            </div>
+
+                            <!--cuadricula del lado derecho-->
+                            <div class="option">
+                                <div class="prod-grid">
+                                    <img src="img/peluche_coneja_rosa.jpg" alt="peluche_coneja_rosa">
+                                    <div class="prod-text">
+                                        <h3>Peluche Conejito rosado</h3>
+                                        <p>S/25.00</p>
+                                    </div>
+                                    <button class="carrito">Agregar al carrito</button>
+                                </div>
+                            </div>
+                            <div class="option">
+                                <div class="prod-grid">
+                                    <img src="img/sonajero_jirafa.jpg" alt="sonajero_jirafa">
+                                    <div class="prod-text">
+                                        <h3>Sonajero Jirafa</h3>
+                                        <p>S/15.00</p>
+                                    </div>
+                                    <button class="carrito">Agregar al carrito</button>
+                                </div>
+                            </div>
+                            <div class="option">
+                                <div class="prod-grid">
+                                    <img src="img/pavoreal_colores.jpg" alt="pavoreal_colores">
+                                    <div class="prod-text">
+                                        <h3>Peluche Pavo de colores</h3>
+                                        <p>S/38.00</p>
+                                    </div>
+                                    <button class="carrito">Agregar al carrito</button>
+                                </div>
+                            </div>
+                            <div class="option">
+                                <div class="prod-grid">
+                                    <img src="img/peluche_dinosaurio_colores.jpg" alt="">
+                                    <div class="prod-text">
+                                        <h3>Peluche Dinosaurio de colores</h3>
+                                        <p>S/32.00</p>
+                                    </div>
+                                    <button class="carrito">Agregar al carrito</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    <button id="boton2">Ver más <i class="fa-solid fa-angle-right"></i></button>
+                    </div>        
+                    <div class="bloque" id="Vendidos">
+                        <div class="img-grid">
+
+                            <!--imagen del lado izquierdo-->
+                            <div class="option">
+                                <div class="option-img">
+                                    <img src="img/mujer-tejer-artesania.jpg" alt="amigurumi1">
+                                </div>
+                                <div class="option-text">
+                                    <h2>Más vendidos</h2>
+                                </div>
+                            </div>
+
+                            <!--cuadricula del lado derecho-->
+                            <div class="option">
+                                <div class="prod-grid">
+                                    <img src="img/peluche_coneja_rosa.jpg" alt="peluche_coneja_rosa">
+                                    <div class="prod-text">
+                                        <h3>Peluche Conejito rosado</h3>
+                                        <p>S/25.00</p>
+                                    </div>
+                                    <button class="carrito">Agregar al carrito</button>
+                                </div>
+                            </div>
+                            <div class="option">
+                                <div class="prod-grid">
+                                    <img src="img/sonajero_zorro.jpg" alt="sonajero_zorro">
+                                    <div class="prod-text">
+                                        <h3>Sonajero Zorro</h3>
+                                        <p>S/15.00</p>
+                                    </div>
+                                    <button class="carrito">Agregar al carrito</button>
+                                </div>
+                            </div>
+                            <div class="option">
+                                <div class="prod-grid">
+                                    <img src="img/peluche_conejo_blanco.jpg" alt="">
+                                    <div class="prod-text">
+                                        <h3>Peluche Conejito blanco</h3>
+                                        <p>S/29.00</p>
+                                    </div>
+                                    <button class="carrito">Agregar al carrito</button>
+                                </div>
+                            </div>
+                            <div class="option">
+                                <div class="prod-grid">
+                                    <img src="img/peluche_mono.jpg" alt="peluche_mono">
+                                    <div class="prod-text">
+                                        <h3>Peluche Mono</h3>
+                                        <p>S/27.00</p>
+                                    </div>
+                                    <button class="carrito">Agregar al carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                    <button id="boton2">Ver más <i class="fa-solid fa-angle-right"></i></button>
+                    </div>
+
+                    <div class="bloque" id="Colecciones">
+                        <div class="img-grid">
+
+                            <!--imagen del lado izquierdo-->
+                            <div class="option">
+                                <div class="option-img">
+                                    <img src="img/sonajero_jirafa_canasta.jpg" alt="amigurumi1">
+                                </div>
+                                <div class="option-text">
+                                    <h2>Colecciones</h2>
+                                </div>
+                            </div>
+
+                            <!--cuadricula del lado derecho-->
+                            <div class="option">
+                                <div class="prod-grid">
+                                    <img src="img/peluche_coneja_rosa.jpg" alt="">
+                                    <div class="prod-text">
+                                        <h3>Peluche Conejito rosado</h3>
+                                        <p>S/25.00</p>
+                                    </div>
+                                    <button class="carrito">Agregar al carrito</button>
+                                </div>
+                            </div>
+                            <div class="option">
+                                <div class="prod-grid">
+                                    <img src="img/peluche_coneja_rosa.jpg" alt="">
+                                    <div class="prod-text">
+                                        <h3>Peluche Conejito rosado</h3>
+                                        <p>S/25.00</p>
+                                    </div>
+                                    <button class="carrito">Agregar al carrito</button>
+                                </div>
+                            </div>
+                            <div class="option">
+                                <div class="prod-grid">
+                                    <img src="img/peluche_coneja_rosa.jpg" alt="">
+                                    <div class="prod-text">
+                                        <h3>Peluche Conejito rosado</h3>
+                                        <p>S/25.00</p>
+                                    </div>
+                                    <button class="carrito">Agregar al carrito</button>
+                                </div>
+                            </div>
+                            <div class="option">
+                                <div class="prod-grid">
+                                    <img src="img/peluche_coneja_rosa.jpg" alt="">
+                                    <div class="prod-text">
+                                        <h3>Peluche Conejito rosado</h3>
+                                        <p>S/25.00</p>
+                                    </div>
+                                    <button class="carrito">Agregar al carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                    <button id="boton2">Ver más <i class="fa-solid fa-angle-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            function ProductosTabs(evt, destacados) {
+            var i, bloque, tablinks;
+            bloque = document.getElementsByClassName("bloque");
+            for (i = 0; i < bloque.length; i++) {
+                bloque[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(destacados).style.display = "block";
+            evt.currentTarget.className += " active";
+            }
+            document.getElementById("defaultOpen").click();
+        </script>
+
+
+        <!-- Como comprar-->
+        <section class="instructions">
+            <div class="cat-tittle">
+                <hr class="line_subtittle">
+                <h2>Cómo comprar</h2>
+                <hr class="line_subtittle">
+            </div>
+            <span>Te enseñamos el paso a paso para realizar tu compra.</span>
+            <div class="steps">
+                <div class="step">
+                    <div class="img_circle">
+                        <img src="img/shopping-bag-check.svg" alt="shop">
+                    </div>
+                    <div class="text-step">
+                        <h3>Paso 1</h3>
+                        <p>Selecciona un producto y añádelo a tu carrito de compras.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="img_circle">
+                        <img src="img/form_line.svg" alt="form">
+                    </div>
+                    <div class="text-step">
+                        <h3>Paso 2</h3>
+                        <p>Selecciona un producto y añádelo a tu carrito de compras.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="img_circle">
+                        <img src="img/pay.svg" alt="pago">
+                    </div>
+                    <div class="text-step">
+                        <h3>Paso 3</h3>
+                        <p>Escoge el método de pago de tu preferencia y procede con el pago correspondiente.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="img_circle">
+                        <img src="img/talk_chat_bubble_message.svg" alt="conversar">
+                    </div>
+                    <div class="text-step">
+                        <h3>Paso 4</h3>
+                        <p>Te contactaremos para detallar la personalización de tus productos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="reviews">
+            <div class="cat-tittle">
+                <hr class="line_subtittle">
+                <h2>Reseñas</h2>
+                <hr class="line_subtittle">
+            </div>
+            <div class="review-content">
+                <div class="review-column" id="img-people">
+                    <div class="review-img">
+                        <img src="img/dibujado-mano-gente-plana-hablando.png" alt="talk_persons">
+                    </div>
+                    <div class="review-text">
+                        <p>Apreciamos la opinión de todos nuestros clientes</p>
+                    </div>
+                </div>
+                <div class="review-column" id="r1">
+                    <div class="review-img">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-quote-right"></i>
+                        </div>
+                    </div>
+                    <div class="review-text" id="rt1">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <br>
+                        <h3>- Karla Paredes</h3>
+                    </div>
+                </div>
+                <div class="review-column" id="r2">
+                    <div class="review-img">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-quote-right"></i>
+                        </div>
+                    </div>
+                    <div class="review-text" id="rt2">
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <br>
+                        <h3>- Rosa Díaz</h3>
+                    </div>
+                </div>
+                <div class="review-column" id="r3">
+                    <div class="review-img">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-quote-right"></i>
+                        </div>
+                    </div>
+                    <div class="review-text" id="rt3">
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <br>
+                        <h3>- Mario Durán</h3>
+                    </div>
+                </div>
+                <div class="review-column" id="exp-content">
+                    <div class="review-img">
+                        <img src="img/yarn_white.svg" alt="yarn">
+                    </div>
+                    <div class="review-text">
+                        <p>Cuéntanos tu experiencia con <span>Amigurumi Perú</span></p>
+                    </div>
+                </div>
+                <div class="review-column" id="your-review">
+                    <form>
+                        <!--<input id="comentario" type="text" name="comentario" placeholder="Escribe un comentario sobre tu experiencia." required>-->
+                        <textarea id="comentario" name="comentario" rows="5" cols="33" placeholder="Escribe un comentario sobre tu experiencia."></textarea>
+                        <button class="enviar"><i class="fa-solid fa-paper-plane"></i></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    
+    </main>
+
+    <!--Sección final - Footer-->
+    <footer>
+        <div class="contenedor">
+            <div class="footer-row">
+                <div class="footer-column">
+                    <img src="img/logo_amigurumi peru.jpeg" alt="logo">
+                    <p>Síguenos en:</p>
+                    <div class="logo_sns">
+                        <a href="https://www.facebook.com/amigurumiperu"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/amigurumiperu"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@amigurumiperu"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Sobre nosotros</h4>
+                    <ul id="column1">
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="nosotros.html">Contáctanos</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Políticas de seguridad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Atención al cliente</h4>
+                    <ul id="column2">
+                        <li><a href="faq.html">Cómo comprar</a></li>
+                        <li><a href="faq.html">Preguntas frecuentes</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                        <li><a href="#">Libro de reclamaciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Suscríbete al boletin</h3>
+                    <p>Ingresa tu correo electrónico para recibir nuestras últimas novedades y promociones exclusivas</p>
+                    <form action="guardar_correo" method="post">
+                        <input id="email" type="email" name="email" placeholder="Correo electrónico" required>
+                        <button class="enviar"><i class="fa-solid fa-paper-plane"></i></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
