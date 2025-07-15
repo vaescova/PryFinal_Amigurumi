@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMIGURUMI PERU - CONTRERAS VALERIA</title>
     <link rel="icon" type="image/png" href="img/logo_amigurumi peru.jpeg" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
 
 </head>
 <body>
@@ -29,10 +31,290 @@
     </header>
 
     <!--Contenido-->
-    <main>
+    <main id="page-products">
         <div class="title-page">
             <h1>Productos</h1>
         </div>
+<br>
+        <!--orden-->
+        <div class="view-settings">
+            <div class="order" id="tittle-filter">
+                <p>Filtros</p>
+            </div>
+            <div class="order">
+                <p>Ver</p>
+                <button><img src="img/three-columns.svg" alt=""></button>
+                <button><img src="img/four-columns.svg" alt=""></button>
+                <button><img src="img/list.svg" alt=""></button>
+            </div>
+            <div class="order">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Buscar productos...">
+            </div>
+            <div class="order">
+                <p>Ordernar por</p>
+                <select id="categoryFilter">
+                    <option value="">Más vendidos</option>
+                    <option value="electronicos">Mayor a menor precio</option>
+                    <option value="ropa">Menor a mayor precio</option>
+                    <option value="libros">A-Z</option>
+                </select>
+            </div>
+            </div>
+        </div>
+    <hr>
+        <!--Filtros-->
+        <div class="container-products">
+            <aside>
+                <div class="title-filtersection">
+                    <h3>Filtrar</h3>
+                    <p><span>Borrar todo</span></p>
+                </div>
+                <div class="filters" id="filtro1">
+                    <h4>Categorías</h4>
+                    <label><input type="radio" name="categoria" value="todos" checked> Todas</label>
+                    <label><input type="radio" name="categoria" value="peluche"> Peluches de apego</label>
+                    <label><input type="radio" name="categoria" value="sonajero"> Sonajeros</label>
+                    <label><input type="radio" name="categoria" value="personalizados"> Personalizados</label>
+                </div>
+
+                <div class="filters" id="filtro2">
+                    <h4>Colecciones</h4>
+                    <label><input type="radio" name="collections" value="all2" checked> Todas</label>
+                    <label><input type="radio" name="collections" value="primavera"> Primavera</label>
+                    <label><input type="radio" name="collections" value="d-madre"> Día de la madre</label>
+                    <label><input type="radio" name="collections" value="d-padre"> Día del padre</label>
+                </div>
+
+                <div class="filters" id="filtro3">
+                    <h4>Precio</h4>
+                    
+                    <div class="price-input">
+                        <label><b>S/.</b></label>
+                        <input type="number" placeholder="Desde">
+                        <p><b>-</b></p>
+                        <input type="number" placeholder="Hasta">
+                    </div>
+                </div>
+
+                <div class="filters" id="filtro4">
+                    <h4>Tamaño</h4>
+                    <label><input type="radio" name="size-amigurumi" value="all3" checked> Todos</label>
+                    <label><input type="radio" name="size-amigurumi" value="15cm"> 15cm</label>
+                    <label><input type="radio" name="size-amigurumi" value="18cm"> 18cm</label>
+                    <label><input type="radio" name="size-amigurumi" value="24cm"> 24cm</label>
+                </div>
+                <script>
+                    const radios = document.querySelectorAll('input[type="radio"]');
+                    const productos = document.querySelectorAll('.col');
+
+                    radios.forEach(radio => {
+                    radio.addEventListener('change', filtrarProductos);
+                    });
+
+                    function filtrarProductos() {
+                    const categoriaSeleccionada = this.value;
+
+                    productos.forEach(col => {
+                        if (categoriaSeleccionada === 'todas' || col.classList.contains(categoriaSeleccionada)) {
+                        col.classList.remove('oculto');
+                        } else {
+                        col.classList.add('oculto');
+                        }
+                    });
+                    }
+                </script>
+            </aside>
+            <!--Fin de filtros-->
+
+            <!--Grilla de Productos-->
+            <section id="all-products">
+                <div class="container text-center">
+                    <div class="row row-cols-4">
+                        <div class="col">
+                            <button class="image-container">
+                                <img src="img/peluche_coneja_rosa.jpg" alt="">
+                                <i class="fa-regular fa-heart"></i>
+                                <p><span class="overlay">Vista previa</span></p>
+                            </button>
+                            <div class="product-text text-start">
+                                <h3>Peluche Conejito rosado</h3>
+                                <p>S/25.00</p>
+                            </div>
+                            <button class="carrito">Agregar al carrito</button>
+                        </div>
+
+                        <div class="col">
+                            <button class="image-container">
+                                <img src="img/sonajero_jirafa.jpg" alt="">
+                                <i class="fa-regular fa-heart"></i>
+                                <p><span class="overlay">Vista previa</span></p>
+                            </button>
+                            <div class="product-text text-start">
+                                <h3>Sonajero Jirafa</h3>
+                                <p>S/15.00</p>
+                            </div>
+                            <button class="carrito">Agregar al carrito</button>
+                        </div>
+
+                        <div class="col">
+                            <button class="image-container">
+                                <img src="img/peluche_mono.jpg" alt="">
+                                <i class="fa-regular fa-heart"></i>
+                                <p><span class="overlay">Vista previa</span></p>
+                            </button>
+                            <div class="product-text text-start">
+                                <h3>Peluche Mono</h3>
+                                <p>S/24.00</p>
+                            </div>
+                            <button class="carrito">Agregar al carrito</button>
+                        </div>
+
+                        <div class="col">
+                            <button class="image-container">
+                                <img src="img/pavoreal_colores.jpg" alt="">
+                                <i class="fa-regular fa-heart"></i>
+                                <p><span class="overlay">Vista previa</span></p>
+                            </button>
+                            <div class="product-text text-start">
+                                <h3>Peluche Pavo de colores</h3>
+                                <p>S/38.00</p>
+                            </div>
+                            <button class="carrito">Agregar al carrito</button>
+                        </div>
+
+                        <div class="col">
+                            <button class="image-container">
+                                <img src="img/sonajero_zorro.jpg" alt="">
+                                <i class="fa-regular fa-heart"></i>
+                                <p><span class="overlay">Vista previa</span></p>
+                            </button>
+                            <div class="product-text text-start">
+                                <h3>Sonajero Zorro</h3>
+                                <p>S/15.00</p>
+                            </div>
+                            <button class="carrito">Agregar al carrito</button>
+                        </div>
+
+                        <div class="col">
+                            <button class="image-container">
+                                <img src="img/muneca_castana-amigurumi.jpg" alt="">
+                                <i class="fa-regular fa-heart"></i>
+                                <p><span class="overlay">Vista previa</span></p>
+                            </button>
+                            <div class="product-text text-start">
+                                <h3>Peluche muñeca jardinera</h3>
+                                <p>S/42.00</p>
+                            </div>
+                            <button class="carrito">Agregar al carrito</button>
+                        </div>
+
+                        <div class="col">
+                            <button class="image-container">
+                                <img src="img/sonajero_conejo.jpg" alt="">
+                                <i class="fa-regular fa-heart"></i>
+                                <p><span class="overlay">Vista previa</span></p>
+                            </button>
+                            <div class="product-text text-start">
+                                <h3>Sonajero Conejito crema</h3>
+                                <p>S/15.00</p>
+                            </div>
+                            <button class="carrito">Agregar al carrito</button>
+                        </div>
+
+                        <div class="col">
+                            <button class="image-container">
+                                <img src="img/peluche_dinosaurio_colores.jpg" alt="">
+                                <i class="fa-regular fa-heart"></i>
+                                <p><span class="overlay">Vista previa</span></p>
+                            </button>
+                            <div class="product-text text-start">
+                                <h3>Peluche Dinosaurio de colores</h3>
+                                <p>S/37.00</p>
+                            </div>
+                            <button class="carrito">Agregar al carrito</button>
+                        </div>
+
+                        <div class="col">
+                            <button class="image-container">
+                                <img src="img/peluche_conejo_blanco.jpg" alt="">
+                                <i class="fa-regular fa-heart"></i>
+                                <p><span class="overlay">Vista previa</span></p>
+                            </button>
+                            <div class="product-text text-start">
+                                <h3>Peluche Conejito blanco</h3>
+                                <p>S/25.00</p>
+                            </div>
+                            <button class="carrito">Agregar al carrito</button>
+                        </div>
+
+                        <div class="col">
+                            <button class="image-container">
+                                <img src="img/peluche_conejo_crema.jpg" alt="">
+                                <i class="fa-regular fa-heart"></i>
+                                <p><span class="overlay">Vista previa</span></p>
+                            </button>
+                            <div class="product-text text-start">
+                                <h3>Peluche Conejito crema</h3>
+                                <p>S/35.00</p>
+                            </div>
+                            <button class="carrito">Agregar al carrito</button>
+                        </div>
+
+                        <div class="col">
+                            <button class="image-container">
+                                <img src="img/flores_crochet.jpeg" alt="">
+                                <i class="fa-regular fa-heart"></i>
+                                <p><span class="overlay">Vista previa</span></p>
+                            </button>
+                            <i class="fa-solid fa-heart"></i>
+                            <div class="product-text text-start">
+                                <h3>Gift box Flores</h3>
+                                <p>S/55.00</p>
+                            </div>
+                            <button class="carrito">Agregar al carrito</button>
+                        </div>
+
+                        <div class="col">
+                            <button class="image-container">
+                                <img src="img/giftbox_conejo.jpg" alt="">
+                                <i class="fa-regular fa-heart"></i>
+                                <p><span class="overlay">Vista previa</span></p>
+                            </button>
+                            <i class="fa-solid fa-heart"></i>
+                            <div class="product-text text-start">
+                                <h3>Gift box San Valentín</h3>
+                                <p>S/25.00</p>
+                            </div>
+                            <button class="carrito">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <!--Fin de grilla-->
+        </div>
+        <!--Botones de paginado-->
+        <div aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                <a class="page-link"><i class="fa-solid fa-angle-left"></i></a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#" aria-current="page">2</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#"><i class="fa-solid fa-angle-right"></i></a>
+                </li>
+            </ul>
+        </div>
+
+
+
+
     </main>
 
     <!--Sección final - Footer-->
@@ -47,6 +329,7 @@
                         <a href="https://www.instagram.com/amigurumiperu"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://www.tiktok.com/@amigurumiperu"><i class="fa-brands fa-tiktok"></i></a>
                     </div>
+                <p>Hecho por:<span> Valeria Contreras</span></p>
                 </div>
                 <div class="footer-column">
                     <h4>Sobre nosotros</h4>
@@ -77,5 +360,6 @@
             </div>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </body>
 </html>
