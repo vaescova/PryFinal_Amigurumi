@@ -34,7 +34,7 @@
             <h1>¿Cómo comprar?</h1>
         </div>
         
-        <div id="carouselExampleCaptions" class="carousel slide">
+        <!--<div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -71,7 +71,111 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Siguiente</span>
             </button>
+        </div>-->
+        <div id="tutorial-banner">
+            <div class="step-text">
+            </div>
+            <div class="step-controls">
+                <button id="prev">←</button>
+                <button id="next">→</button>
+            </div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script>
+        $(document).ready(function () {
+            const steps = [
+            {
+                text: 'Paso 1: Selecciona un producto y añádelo a tu carrito de compras.',
+                img: 'img/pexels-imin-technology-276315592-12935040.jpg'
+            },
+            {
+                text: 'Paso 2: Realiza el registro de tus datos con la dirección a dónde eviaremos tu pedido.',
+                img: 'img/aleksei-zhivilov-WzC1lcwZCsY-unsplash.jpg'
+            },
+            {
+                text: 'Paso 3: Escoge el método de pago de tu preferencia y procede con el pago correspondiente.',
+                img: 'img/nathana-reboucas-3YSDTzqnVtQ-unsplash.jpg'
+            },
+            {
+                text: 'Paso 4: Te contactaremos para detallar la personalización de tus productos.',
+                img: 'img/pexels-mikhail-nilov-6969766.jpg'
+            },
+            {
+                text: '¡Listo! Recibe tu pedido en casa',
+                img: 'img/coleccion-de-hilo-suave.jpg'
+            }
+            ];
+
+            let index = 0;
+
+            function updateSlide() {
+            $('#tutorial-banner')
+                .fadeOut(300, function () {
+                $(this)
+                    .css('background-image', 'url(' + steps[index].img + ')')
+                    .fadeIn(300);
+                });
+            $('.step-text').text(steps[index].text);
+            }
+
+            $('#next').click(function () {
+            index = (index + 1) % steps.length;
+            updateSlide();
+            });
+
+            $('#prev').click(function () {
+            index = (index - 1 + steps.length) % steps.length;
+            updateSlide();
+            });
+
+            // Inicial
+            updateSlide();
+
+            // Opcional: cambio automático cada 5 segundos
+            // setInterval(() => $('#next').click(), 5000);
+        });
+        </script>
+        <section class="preguntas">
+            <div class="faq-left">
+      
+                <div class="preguntas-title">
+                    <h2>Preguntas frecuentes</h2>
+                    <p>Aquí encontrarás todo lo que necesitas saber.</p>
+                </div>
+
+                <div class="faq-item">
+                    <input type="checkbox" id="faq1">
+                    <label for="faq1" class="faq-question">¿Los amigurumis son personalizados?</label>
+                    <div class="faq-answer">
+                    Sí, puedes elegir colores, nombre bordado y detalles específicos según el producto.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <input type="checkbox" id="faq2">
+                    <label for="faq2" class="faq-question">¿Qué tamaños tienen los amigurumis?</label>
+                    <div class="faq-answer">
+                    Vienen en medidas de 15 cm, 18 cm y 24 cm. Consulta cada producto para más detalles.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <input type="checkbox" id="faq3">
+                    <label for="faq3" class="faq-question">¿Cómo se cuidan o lavan los amigurumis?</label>
+                    <div class="faq-answer">
+                    Lávalos a mano con agua fría y sécalos al aire. No uses secadora ni lejía.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-right">
+                <img src="img/mujer-tejer-artesania.jpg" alt="Ilustración FAQ de amigurumis">
+            </div>
+        </div>
+
+      </div>
+
+        </section>
     </main>
 
     <!--Sección final - Footer-->
